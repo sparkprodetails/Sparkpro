@@ -11,80 +11,8 @@ const Cardetailing = () => {
 
   return (
     <div className="maincontainer">
-      {/* Helmet for SEO and Metadata */}
-      <Helmet>
-        <title>Best Car Detailing, PPF & Ceramic Coating in Islamabad & Rawalpindi</title>
-        <meta
-          name="description"
-          content="Get the best car detailing, paint protection film (PPF), and ceramic coating services in Islamabad & Rawalpindi. Protect and enhance your car with showroom-quality care and expert service."
-        />
-        <meta
-          property="og:title"
-          content="Best car detailing, ppf & ceramic coating in islamabad"
-        />
-        <meta
-          property="og:description"
-          content="Top-tier car detailing, PPF, and ceramic coating in Islamabad & Rawalpindi. Protect your car’s finish with the best materials and expert care."
-        />
-        <meta property="og:image" content="/logo.jpg" />
-        <meta property="og:url" content="https://www.sparkprodetails.com/" />
-        <meta property="og:type" content="website" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Best car detailing, ppf & ceramic coating in islamabad"
-        />
-        <meta
-          name="twitter:description"
-          content="Experience expert car detailing, PPF, and ceramic coating services in Islamabad & Rawalpindi. Enhance your car’s protection and shine today!"
-        />
-        <meta name="twitter:image" content="/logo.jpg" />
-
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://www.sparkprodetails.com/" />
-      </Helmet>
-
-      {/* Structured Data (JSON-LD) */}
-      <script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Spark Pro Details",
-      "url": "https://www.sparkprodetails.com/",
-      "logo": "https://www.sparkprodetails.com/logo.jpg",
-      "image": "https://www.sparkprodetails.com/logo.jpg",
-      "description": "Best car detailing, PPF & ceramic coating services in islamabad & rawalpindi. Get showroom-quality detailing with expert care for your car.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Islamabad & Rawalpindi",
-        "addressRegion": "Islamabad Capital Territory",
-        "addressCountry": "Pakistan"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+92-310-5555027",  
-        "contactType": "customer service",
-        "areaServed": "PK",
-        "availableLanguage": "en"
-      },
-      "sameAs": [
-        "https://www.facebook.com/profile.php?id=61556978987668",
-        "https://www.instagram.com/sparkpro.details/",
-        "https://www.youtube.com/@Sparkprodetails/shorts"
-      ],
-      "serviceType": [
-        "Car Detailing",
-        "Paint Protection Film (PPF)",
-        "Ceramic Coating"
-      ],
-      "priceRange": "$$$"
-    }),
-  }}
-/>
-
+    
+{/* here mark dont uncomment plz */}
 
       <div className="car-animation-container">
         <img className="car-animation" src={assets.logo_icon} alt="Car Animation" />

@@ -12,7 +12,7 @@ const Cardetailing = () => {
   return (
     <div className="maincontainer">
     
-{/* here mark dont uncomment plz */}
+{/* dont uncomment plz */}
 
       <div className="car-animation-container">
         <img className="car-animation" src={assets.logo_icon} alt="Car Animation" />

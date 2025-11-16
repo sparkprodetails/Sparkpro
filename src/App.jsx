@@ -28,7 +28,7 @@ function App() {
           <Route path="/services/chromic-rims" element={<Dechrome />} />   
           <Route path="/appointment" element={<Appointment />} /> 
         </Routes>
-        {/* Footer is included after all routes so it will show on every page */}
+        {/* Footer  */}
         <Footer />
         <ContactIcons/>
       </div>

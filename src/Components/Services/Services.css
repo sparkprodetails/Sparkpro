@@ -1,0 +1,516 @@
+/* ========================================= */
+/* AGENCY-ELITE GLOBAL SERVICES STYLES       */
+/* ========================================= */
+
+.service-page-elite {
+  background-color: var(--bg-primary);
+  width: 100%;
+  overflow-x: hidden;
+  color: var(--text-primary);
+  padding-bottom: 0;
+}
+
+/* ========================================= */
+/* 1. CINEMATIC HERO                         */
+/* ========================================= */
+.service-hero-elite {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 80px;
+}
+
+.service-hero-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transform: scale(1.05); /* Avoid anti-aliasing edge issues */
+}
+
+.service-hero-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%, #000 100%);
+  z-index: 1;
+}
+
+.service-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  padding-bottom: 100px;
+}
+
+.service-hero-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.service-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1.1;
+  margin: 0 0 20px 0;
+  color: #fff;
+  letter-spacing: -1.5px;
+  max-width: 900px;
+}
+
+.service-hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: rgba(255,255,255,0.7);
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+/* ========================================= */
+/* 2. THE MASTERCLASS OVERVIEW               */
+/* ========================================= */
+.service-overview-elite {
+  padding-top: 60px;
+  padding-bottom: 120px;
+}
+
+.overview-split {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.overview-left {
+  flex: 0 0 40%;
+  position: sticky;
+  top: 120px;
+}
+
+.overview-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+.overview-right {
+  flex: 1;
+  padding-top: 20px;
+  border-left: 1px solid rgba(255,255,255,0.1);
+  padding-left: 60px;
+}
+
+.overview-text {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 30px;
+}
+
+.overview-text strong {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* ========================================= */
+/* 3. CORE BENEFITS (BENTO GRID)              */
+/* ========================================= */
+.service-benefits-elite {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background: #0a0a0b;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.section-header-centered {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.section-header-centered .section-title {
+  margin-bottom: 15px;
+}
+
+.bento-glass-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.bento-card-elite {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 40px;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-card-elite:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-8px);
+  border-color: rgba(0, 112, 243, 0.3);
+  box-shadow: 0 15px 30px rgba(0, 112, 243, 0.1);
+}
+
+.bento-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: rgba(0, 112, 243, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  border: 1px solid rgba(0, 112, 243, 0.2);
+}
+
+.bento-icon {
+  font-size: 1.5rem;
+  color: var(--accent-primary);
+}
+
+.bento-card-elite h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.bento-card-elite p {
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.bento-span-2 {
+  grid-column: span 3;
+}
+
+.bento-flex-horizontal h3 {
+  font-size: 2rem;
+}
+
+/* ========================================= */
+/* 4. THE MASTERCLASS PROCESS                 */
+/* ========================================= */
+.service-process-elite {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.process-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* The vertical line */
+.process-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 40px;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.2) 80%, transparent 100%);
+  z-index: 0;
+}
+
+.process-step {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.step-number {
+  width: 80px; min-width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #000;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+  box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+.step-content {
+  padding-top: 10px;
+}
+
+.step-content h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.step-content p {
+  color: rgba(255,255,255,0.6);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* ========================================= */
+/* 5. SHOWCASE GALLERY                        */
+/* ========================================= */
+.service-gallery-elite {
+  padding-bottom: 120px;
+}
+
+.masonry-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.masonry-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 350px;
+}
+
+.masonry-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.masonry-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.masonry-zoom {
+  width: 60px; height: 60px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  transform: scale(0.8);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.masonry-item:hover img {
+  transform: scale(1.05);
+}
+
+.masonry-item:hover .masonry-overlay {
+  opacity: 1;
+}
+
+.masonry-item:hover .masonry-zoom {
+  transform: scale(1);
+}
+
+/* ========================================= */
+/* 6. ULTIMATE CTA                            */
+/* ========================================= */
+.service-cta-elite {
+  position: relative;
+  padding: 120px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  overflow: hidden;
+}
+
+.cta-elite-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 40px;
+}
+
+.cta-elite-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 4rem);
+  color: #fff;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.cta-elite-content p {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 40px;
+}
+
+.cta-elite-bg {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw; height: 60vw;
+  background: radial-gradient(circle, rgba(0, 112, 243, 0.1) 0%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Utility / Typo fixes */
+.d-block { display: block; }
+.mt-4 { margin-top: 2rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+/* ========================================= */
+/* MOBILE RESPONSIVENESS                      */
+/* ========================================= */
+@media (max-width: 991px) {
+  .overview-split {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .overview-left {
+    position: static;
+  }
+  
+  .overview-right {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 40px;
+  }
+  
+  .bento-glass-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .bento-span-2 {
+    grid-column: span 1;
+  }
+
+  .process-timeline::before {
+    left: 25px;
+  }
+
+  .process-step {
+    gap: 20px;
+  }
+  
+  .step-number {
+    width: 50px; min-width: 50px; height: 50px;
+    font-size: 1.1rem;
+  }
+
+  .service-hero-content {
+    padding-bottom: 80px;
+  }
+  
+  .masonry-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  /* Prevent Any Text Overflow */
+  .service-page-elite * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .service-hero-title {
+    font-size: clamp(2.2rem, 8vw, 3rem); /* Smaller min-size */
+  }
+
+  .service-hero-subtitle, .overview-text, .bento-card-elite p, .step-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .overview-title {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+  }
+
+  .bento-card-elite {
+    padding: 24px; /* Reduce padding on mobile */
+  }
+
+  .bento-card-elite h3 {
+    font-size: 1.3rem;
+  }
+
+  .bento-flex-horizontal h3 {
+    font-size: 1.5rem;
+  }
+
+  .service-hero-elite, .service-overview-elite, .service-benefits-elite, .service-process-elite, .service-gallery-elite, .service-cta-elite {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .service-hero-elite {
+    min-height: 500px;
+    height: 60vh;
+    padding: 0;
+    margin-bottom: 40px;
+  }
+
+  .step-content h3 {
+    font-size: 1.4rem;
+  }
+  
+  .cta-elite-content h2 {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+  }
+}
+
+@media (max-width: 400px) {
+  /* Ultra-small devices like iPhone SE */
+  .masonry-gallery {
+    grid-template-columns: 1fr;
+  }
+  .bento-card-elite h3 {
+    font-size: 1.1rem;
+  }
+}

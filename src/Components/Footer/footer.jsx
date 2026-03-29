@@ -32,7 +32,7 @@ const Footer = () => {
         <ScrollReveal delay={0.3}>
           <div className="footer-section contact">
             <h4>Get in Touch</h4>
-            <p>DHA Phase 2, Islamabad</p>
+            <p>Islamabad, Rwalpindi</p>
             <p><a href="tel:+923105555027">+92 (310) 5555 027</a></p>
           </div>
         </ScrollReveal>

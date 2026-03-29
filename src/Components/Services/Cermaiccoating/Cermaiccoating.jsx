@@ -20,7 +20,7 @@ const Cermaiccoating = () => {
       {/* Cinematic Hero */}
       <section className="service-hero-elite">
         {/* Use a hero image. Assets.C1 or similar */}
-        <img src={assets.C3} alt="Ceramic Coating" className="service-hero-bg" />
+        <img src={assets.C3} alt="Ceramic Coating" className="service-hero-bg" loading="eager" decoding="async" />
         <div className="service-hero-overlay"></div>
         <div className="container service-hero-content">
           <ScrollReveal delay={0.1}>
@@ -144,7 +144,7 @@ const Cermaiccoating = () => {
           {[assets.C1, assets.C4, assets.C5, assets.C10, assets.C12, assets.C16].map((img, index) => (
             <ScrollReveal delay={0.1 + (index * 0.1)} key={index}>
               <div className="masonry-item">
-                <img src={img} alt={`Ceramic Work ${index + 1}`} />
+                <img src={img} alt={`Ceramic Work ${index + 1}`} loading="lazy" decoding="async" />
                 <div className="masonry-overlay">
                   <span className="masonry-zoom"><i className="fas fa-search-plus"></i></span>
                 </div>

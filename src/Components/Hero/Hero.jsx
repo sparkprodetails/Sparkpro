@@ -40,7 +40,7 @@ const Hero = () => {
       <div className="hero">
         <div className="hero-bg">
           <div className="hero-video-wrapper">
-             <video autoPlay loop muted playsInline className="hero-video">
+             <video autoPlay loop muted playsInline preload="none" className="hero-video">
                 <source src={assets.videoFile} type="video/mp4" />
              </video>
              <div className="hero-overlay"></div>
@@ -132,7 +132,7 @@ const Hero = () => {
                   onClick={() => setHoveredService(srv.id)}
                 >
                   <div className="card-bg-wrapper">
-                    <img src={srv.img} alt={srv.title} className="card-bg-img" />
+                    <img src={srv.img} alt={srv.title} className="card-bg-img" loading="lazy" decoding="async" />
                     <div className="card-gradient-overlay"></div>
                   </div>
                   

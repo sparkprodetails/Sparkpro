@@ -19,7 +19,7 @@ const Glasscoating = () => {
 
       {/* Cinematic Hero */}
       <section className="service-hero-elite">
-        <img src={assets.G1} alt="Glass Coating" className="service-hero-bg" />
+        <img src={assets.G1} alt="Glass Coating" className="service-hero-bg" loading="eager" decoding="async" />
         <div className="service-hero-overlay"></div>
         <div className="container service-hero-content">
           <ScrollReveal delay={0.1}>
@@ -143,7 +143,7 @@ const Glasscoating = () => {
           {[assets.G1, assets.G2, assets.G3, assets.G4, assets.G5, assets.G6, assets.G7, assets.G8].map((img, index) => (
             <ScrollReveal delay={0.1 + (index * 0.1)} key={index}>
               <div className="masonry-item">
-                <img src={img} alt={`Glass Work ${index + 1}`} />
+                <img src={img} alt={`Glass Work ${index + 1}`} loading="lazy" decoding="async" />
                 <div className="masonry-overlay">
                   <span className="masonry-zoom"><i className="fas fa-search-plus"></i></span>
                 </div>

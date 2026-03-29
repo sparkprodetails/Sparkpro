@@ -19,7 +19,7 @@ const Cardetailing = () => {
 
       {/* Cinematic Hero */}
       <section className="service-hero-elite">
-        <img src={assets.d8} alt="360 Detailing" className="service-hero-bg" />
+        <img src={assets.d8} alt="360 Detailing" className="service-hero-bg" loading="eager" decoding="async" />
         <div className="service-hero-overlay"></div>
         <div className="container service-hero-content">
           <ScrollReveal delay={0.1}>
@@ -143,7 +143,7 @@ const Cardetailing = () => {
           {[assets.d1, assets.d2, assets.d3, assets.d4, assets.d5, assets.d6, assets.d7, assets.d9].map((img, index) => (
             <ScrollReveal delay={0.1 + (index * 0.1)} key={index}>
               <div className="masonry-item">
-                <img src={img} alt={`Detailing Work ${index + 1}`} />
+                <img src={img} alt={`Detailing Work ${index + 1}`} loading="lazy" decoding="async" />
                 <div className="masonry-overlay">
                   <span className="masonry-zoom"><i className="fas fa-search-plus"></i></span>
                 </div>

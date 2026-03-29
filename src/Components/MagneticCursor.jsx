@@ -1,60 +1,63 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const MagneticCursor = () => {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
-  const [isHovering, setIsHovering] = useState(false);
-  const requestRef = useRef();
+  const dotRef  = useRef(null);
+  const ringRef = useRef(null);
 
   useEffect(() => {
+    const dot  = dotRef.current;
+    const ring = ringRef.current;
+    if (!dot || !ring) return;
+
     let mouseX = -100;
     let mouseY = -100;
+    let rafId;
 
     const onMouseMove = (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
     };
 
-    const updateCursor = () => {
-      setPosition({ x: mouseX, y: mouseY });
-      requestRef.current = requestAnimationFrame(updateCursor);
+    // Directly mutate style — zero React re-renders
+    const loop = () => {
+      dot.style.left  = `${mouseX}px`;
+      dot.style.top   = `${mouseY}px`;
+      ring.style.left = `${mouseX}px`;
+      ring.style.top  = `${mouseY}px`;
+      rafId = requestAnimationFrame(loop);
     };
 
     const handleMouseOver = (e) => {
       if (e.target.closest('a, button, input, select, textarea, .magnetic')) {
-        setIsHovering(true);
-      }
-    };
-    
-    const handleMouseOut = (e) => {
-      if (e.target.closest('a, button, input, select, textarea, .magnetic')) {
-        setIsHovering(false);
+        dot.classList.add('hover');
+        ring.classList.add('hover');
       }
     };
 
-    window.addEventListener('mousemove', onMouseMove);
+    const handleMouseOut = (e) => {
+      if (e.target.closest('a, button, input, select, textarea, .magnetic')) {
+        dot.classList.remove('hover');
+        ring.classList.remove('hover');
+      }
+    };
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
     document.addEventListener('mouseover', handleMouseOver);
     document.addEventListener('mouseout', handleMouseOut);
-    
-    requestRef.current = requestAnimationFrame(updateCursor);
+    rafId = requestAnimationFrame(loop);
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseover', handleMouseOver);
       document.removeEventListener('mouseout', handleMouseOut);
-      cancelAnimationFrame(requestRef.current);
+      cancelAnimationFrame(rafId);
     };
   }, []);
 
   return (
     <>
-      <div 
-        className={`cursor-dot ${isHovering ? 'hover' : ''}`}
-        style={{ left: `${position.x}px`, top: `${position.y}px` }}
-      />
-      <div 
-        className={`cursor-ring ${isHovering ? 'hover' : ''}`}
-        style={{ left: `${position.x}px`, top: `${position.y}px` }}
-      />
+      <div ref={dotRef}  className="cursor-dot"  />
+      <div ref={ringRef} className="cursor-ring" />
     </>
   );
 };

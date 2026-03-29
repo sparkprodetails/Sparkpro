@@ -1,19 +1,24 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
-import "./index.css"; // Global styles
-import Hero from "./Components/Hero/Hero";
-import PPF from "./Components/Services/PPF/ppf"; // Import the PPF component
-import Cermaiccoating from "./Components/Services/Cermaiccoating/Cermaiccoating";
-import Glasscoating from "./Components/Services/Glasscoating/Glasscoating";
-import Cardetailing from "./Components/Services/Cardetailing/cardetailing";
-import Dechrome from "./Components/Services/Dechrome/dechrome";
-import Appointment from "./Components/Appointment/appointment";
-import Footer from "./Components/Footer/footer"; 
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import ContactIcons from "./Components/Contact/Contact";
+import "./index.css";
 import MagneticCursor from "./Components/MagneticCursor";
+import ContactIcons from "./Components/Contact/Contact";
+import Footer from "./Components/Footer/footer";
 
+// Code-split all heavy route components — only loaded when visited
+const Hero        = lazy(() => import("./Components/Hero/Hero"));
+const PPF         = lazy(() => import("./Components/Services/PPF/ppf"));
+const Cermaiccoating = lazy(() => import("./Components/Services/Cermaiccoating/Cermaiccoating"));
+const Glasscoating   = lazy(() => import("./Components/Services/Glasscoating/Glasscoating"));
+const Cardetailing   = lazy(() => import("./Components/Services/Cardetailing/cardetailing"));
+const Dechrome       = lazy(() => import("./Components/Services/Dechrome/dechrome"));
+const Appointment    = lazy(() => import("./Components/Appointment/appointment"));
+
+// Minimal loading fallback — invisible to user, does not flash any content
+const PageLoader = () => (
+  <div style={{ minHeight: "100vh", background: "#000" }} />
+);
 
 function App() {
   return (
@@ -21,18 +26,19 @@ function App() {
       <div>
         <MagneticCursor />
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Hero />} /> {/* Add a route for the root path */}
-          <Route path="/services/ppf" element={<PPF />} />
-          <Route path="/services/ceramic-coating" element={<Cermaiccoating />} />
-          <Route path="/services/glass-coating" element={<Glasscoating />} />
-          <Route path="/services/detailing" element={<Cardetailing />} />
-          <Route path="/services/chromic-rims" element={<Dechrome />} />   
-          <Route path="/appointment" element={<Appointment />} /> 
-        </Routes>
-        {/* Footer  */}
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/services/ppf" element={<PPF />} />
+            <Route path="/services/ceramic-coating" element={<Cermaiccoating />} />
+            <Route path="/services/glass-coating" element={<Glasscoating />} />
+            <Route path="/services/detailing" element={<Cardetailing />} />
+            <Route path="/services/chromic-rims" element={<Dechrome />} />
+            <Route path="/appointment" element={<Appointment />} />
+          </Routes>
+        </Suspense>
         <Footer />
-        <ContactIcons/>
+        <ContactIcons />
       </div>
     </Router>
   );

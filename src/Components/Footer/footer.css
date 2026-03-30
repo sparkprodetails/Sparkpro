@@ -1,9 +1,9 @@
 .footer {
   background: #000;
   color: #fff;
-  padding: 160px 20px 50px;
+  padding: 100px 20px 50px;
   position: relative;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   overflow: hidden;
 }
 
@@ -11,9 +11,11 @@
 .footer::before {
   content: '';
   position: absolute;
-  top: 0; left: 50%;
+  top: 0;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 60vw; height: 300px;
+  width: 60vw;
+  height: 300px;
   background: radial-gradient(ellipse, rgba(0, 112, 243, 0.15), transparent 70%);
   pointer-events: none;
   z-index: 0;
@@ -48,7 +50,7 @@
 }
 
 .footer-section p {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.8;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
@@ -65,7 +67,7 @@
 }
 
 .footer-section ul li a {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   font-weight: 500;
   transition: all 0.3s var(--transition-ultra);
   position: relative;
@@ -88,8 +90,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   color: #fff;
   font-size: 1.2rem;
@@ -104,13 +106,13 @@
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   max-width: 1300px;
   margin: 100px auto 0;
   padding-top: 40px;
   text-align: center;
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255, 255, 255, 0.4);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   position: relative;
@@ -130,7 +132,7 @@
     text-align: center;
     gap: 50px;
   }
-  
+
   .footer-section p {
     margin: 0 auto 1.5rem;
   }
@@ -139,4 +141,3 @@
     justify-content: center;
   }
 }
-  

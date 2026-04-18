@@ -179,35 +179,34 @@ export default function Checkout() {
       )}`
     };
     try {
-  await emailjs.send(
-    EMAILJS_SERVICE_ID,
-    EMAILJS_TEMPLATE_ID,
-    templateParams,
-    EMAILJS_PUBLIC_KEY
-  );
-} catch (err) {
-  console.error('EmailJS Error:', err);
-  setError('Order placed, but email failed. Please contact via WhatsApp.');
-}
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+    } catch (err) {
+      console.error('EmailJS Error:', err);
+      setError('Order placed, but email failed. Please contact via WhatsApp.');
+    }
 
-setConfirmedOrder({
-  name: form.name,
-  package: packageSummary,
-  quantity: items.reduce((s, i) => s + i.quantity, 0),
-  total: totalPrice.toLocaleString(),
-});
+    setConfirmedOrder({
+      name: form.name,
+      package: packageSummary,
+      quantity: items.reduce((s, i) => s + i.quantity, 0),
+      total: totalPrice.toLocaleString(),
+    });
 
-clearCart();
-setLoading(false);
+    clearCart();
+    setLoading(false);
+  };
 
-   
+  const handleModalClose = () => {
+    setConfirmedOrder(null);
+    navigate('/shop');
+  };
 
-    const handleModalClose = () => {
-      setConfirmedOrder(null);
-      navigate('/shop');
-    };
-
-    return (
+  return (
       <div className="checkout-page">
         <Helmet>
           <title>Checkout | SparkproDetails Shop</title>
@@ -485,4 +484,3 @@ setLoading(false);
       </div>
     );
   }
-}

@@ -26,8 +26,9 @@ const SkeletonImage = ({
     <div 
       className={`image-wrapper ${className}`} 
       style={{ 
-        width: width || '100%', 
-        height: height || 'auto',
+        width: '100%',
+        maxWidth: typeof width === 'number' ? `${width}px` : width || '100%', 
+        height: height && typeof height === 'number' ? 'auto' : height || 'auto',
         aspectRatio: width && height ? `${width}/${height}` : 'unset',
         ...style 
       }}

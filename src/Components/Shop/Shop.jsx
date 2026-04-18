@@ -42,10 +42,14 @@ function PricingCard({ pkg, index }) {
     setTimeout(() => setAdded(false), 2000);
   };
 
+  // Professional Deal (4 Pack) gets a special diamond/pro tier look
+  const isProDeal = pkg.id === 'pro';
+
   return (
     <ScrollReveal delay={0.1}>
-      <div className={`pricing-card${pkg.highlight ? ' highlighted' : ''}`}>
+      <div className={`pricing-card${pkg.highlight ? ' highlighted' : ''}${isProDeal ? ' pro-tier' : ''}`}>
         {pkg.highlight && <div className="card-badge">Most Popular</div>}
+        {isProDeal && <div className="card-badge pro">Elite Pro Deal</div>}
 
         <div className="pricing-card-label">{pkg.label}</div>
         <div className="pricing-card-name">{pkg.name}</div>
@@ -93,8 +97,30 @@ function PricingCard({ pkg, index }) {
 
 export default function Shop() {
   const [activeImg, setActiveImg] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  // Swipe logic for mobile/tablet gallery
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (!touchStart) return;
+    const touchEnd = e.changedTouches[0].clientX;
+    const diff = touchStart - touchEnd;
+
+    // Swipe left (next)
+    if (diff > 50) {
+      setActiveImg(prev => (prev + 1) % IMAGES.length);
+    }
+    // Swipe right (previous)
+    if (diff < -50) {
+      setActiveImg(prev => (prev - 1 + IMAGES.length) % IMAGES.length);
+    }
+    setTouchStart(null);
+  };
 
   return (
     <div className="shop-page">
@@ -113,7 +139,11 @@ export default function Shop() {
 
             {/* Gallery */}
             <ScrollReveal delay={0.1}>
-              <div className="product-gallery">
+              <div 
+                className="product-gallery"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
                 <div className="main-image-wrapper">
                   <SkeletonImage
                     src={IMAGES[activeImg].src}
@@ -122,6 +152,8 @@ export default function Shop() {
                     height={600}
                     priority={true}
                   />
+                  {/* Swipe Indicators for Mobile */}
+                  <div className="swipe-hint">Swipe to view more</div>
                 </div>
                 <div className="thumbnail-row">
                   {IMAGES.map((img, i) => (

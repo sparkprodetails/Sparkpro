@@ -623,40 +623,108 @@
    RESPONSIVE
    ============================================================ */
 @media (max-width: 900px) {
+  .checkout-header {
+    padding: 30px 0 20px;
+  }
+
   .checkout-layout {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .order-summary-card {
     position: static;
     order: -1;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .payment-methods-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .payment-method-card {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 1rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .payment-method-card .pm-logo {
+    font-size: 1.8rem;
+  }
+  
+  .payment-method-card .pm-sub {
+    text-align: left;
   }
 }
 
 @media (max-width: 600px) {
-  .checkout-page { padding-top: 90px; }
+  .checkout-page { 
+    padding-top: 80px; 
+    padding-bottom: 60px;
+  }
 
-  .checkout-form-card { padding: 1.5rem 1.2rem; }
+  .checkout-header h1 {
+    font-size: 2rem;
+  }
+
+  .checkout-form-card { 
+    padding: 1.5rem 1rem; 
+    border-radius: 12px;
+  }
+
+  .checkout-section-title {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+  }
 
   .form-row-2 {
     grid-template-columns: 1fr;
     gap: 0;
   }
 
-  .payment-methods-grid {
-    grid-template-columns: 1fr 1fr;
+  .checkout-steps { 
+    gap: 0; 
+    margin-bottom: 2.5rem;
+  }
+  
+  .step-item span:not(.step-num) { display: none; }
+  .step-line { width: 40px; }
+
+  .modal-box { 
+    padding: 2rem 1.2rem; 
+    margin: 10px;
+    border-radius: 20px;
+    width: calc(100% - 20px);
+  }
+  
+  .modal-title { font-size: 1.6rem; }
+  
+  .modal-payment-details {
+    padding: 1.2rem 1rem;
   }
 
-  .checkout-steps { gap: 0; }
-  .step-item span:not(.step-num) { display: none; }
-  .step-line { width: 30px; }
-
-  .modal-box { padding: 1.8rem 1.2rem; }
-  .modal-title { font-size: 1.4rem; }
+  .btn-place-order {
+    padding: 1.2rem;
+    font-size: 1rem;
+  }
 }
 
-@media (max-width: 380px) {
-  .payment-methods-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 400px) {
+  .order-total-line .amount {
+    font-size: 1.8rem;
+  }
+  
+  .ipd-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .ipd-row .value {
+    font-size: 0.8rem;
   }
 }

@@ -47,6 +47,40 @@
   transition: transform 0.6s var(--transition-ultra);
 }
 
+.swipe-hint {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swipe-hint::before, .swipe-hint::after {
+  content: '←';
+  opacity: 0.6;
+}
+.swipe-hint::after { content: '→'; }
+
+@media (max-width: 900px) {
+  .swipe-hint {
+    opacity: 0.8;
+  }
+}
+
 .main-image-wrapper:hover img {
   transform: scale(1.04);
 }
@@ -77,11 +111,18 @@
 .thumbnail-row {
   display: flex;
   gap: 12px;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 5px;
+  scrollbar-width: thin;
+}
+
+.thumbnail-row::-webkit-scrollbar {
+  height: 4px;
 }
 
 .thumb-btn {
-  flex: 1;
+  flex: 0 0 80px;
   aspect-ratio: 1 / 1;
   border-radius: 8px;
   overflow: hidden;
@@ -89,7 +130,7 @@
   border: 2px solid var(--glass-border);
   cursor: pointer;
   padding: 0;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -269,6 +310,26 @@
   border-color: var(--accent-primary);
   background: linear-gradient(145deg, #0a0f1e 0%, #0d1635 100%);
   box-shadow: 0 0 0 1px rgba(0,112,243,0.3), 0 20px 50px rgba(0,112,243,0.2);
+}
+
+/* Professional/Diamond Tier Upgrade */
+.pricing-card.pro-tier {
+  border-color: #7b2eff;
+  background: linear-gradient(145deg, #0a1128 0%, #1c0a28 100%);
+  box-shadow: 0 0 0 1px rgba(123, 46, 255, 0.3), 0 25px 60px rgba(123, 46, 255, 0.2);
+}
+
+.pricing-card.pro-tier .pricing-card-label {
+  color: #a372ff;
+}
+
+.pricing-card.pro-tier:hover {
+  border-color: #a372ff;
+  box-shadow: 0 30px 70px rgba(123, 46, 255, 0.3);
+}
+
+.card-badge.pro {
+  background: linear-gradient(135deg, #7b2eff 0%, #c471ed 100%);
 }
 
 .card-badge {
@@ -744,20 +805,32 @@
 @media (max-width: 900px) {
   .product-layout {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 3.5rem;
   }
 
   .product-gallery {
     position: static;
-    max-width: 520px;
+    max-width: 100%;
     margin: 0 auto;
-    width: 100%;
+  }
+
+  .product-info {
+    text-align: center;
+  }
+
+  .product-badge-row, .features-grid {
+    justify-content: center;
+  }
+
+  .feature-item {
+    justify-content: center;
   }
 
   .pricing-grid {
     grid-template-columns: 1fr;
-    max-width: 460px;
+    max-width: 480px;
     margin: 0 auto;
+    gap: 2rem;
   }
 
   .pricing-card.highlighted {
@@ -767,34 +840,73 @@
 
 @media (max-width: 600px) {
   .shop-page { padding-top: 90px; }
-  .product-section { padding: 40px 0 60px; }
+  .product-section { padding: 30px 0 50px; }
 
-  .product-title { font-size: 1.6rem; }
-  .features-grid { grid-template-columns: 1fr; }
-
-  .pricing-section { padding: 60px 0; }
-  .pricing-grid {
-    max-width: 100%;
-    grid-template-columns: 1fr;
+  .product-title { 
+    font-size: 2rem;
+    line-height: 1.2;
   }
 
-  .cart-drawer {
-    width: 100vw;
+  .product-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .features-grid { 
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .pricing-section { padding: 60px 0; }
+  
+  .pricing-section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .thumbnail-row {
+    gap: 10px;
+    justify-content: flex-start;
+    padding: 0 5px 10px;
+  }
+
+  .thumb-btn {
+    flex: 0 0 70px;
   }
 
   .add-to-cart-row {
     flex-direction: column;
     align-items: stretch;
+    gap: 15px;
   }
 
   .qty-control {
     align-self: center;
+    width: 100%;
+    justify-content: center;
+    max-width: 200px;
+  }
+
+  .qty-btn {
+    flex: 1;
+    height: 48px;
+  }
+  
+  .qty-display {
+    flex: 1;
+    height: 48px;
+  }
+
+  .btn-add-cart {
+    width: 100%;
+    padding: 1.1rem;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 400px) {
-  .pricing-card { padding: 1.5rem 1.2rem; }
-  .price-amount { font-size: 2rem; }
+  .pricing-card { padding: 2rem 1.4rem; }
+  .price-amount { font-size: 2.2rem; }
+  .product-title { font-size: 1.8rem; }
 }
 /* ============================================================
    TOAST NOTIFICATIONS

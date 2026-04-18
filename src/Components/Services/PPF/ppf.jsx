@@ -4,7 +4,6 @@ import "../Services.css"; // Master CSS
 import { assets } from '@assets/icon';
 import { Link } from "react-router-dom";
 import ScrollReveal from "../../ScrollReveal";
-import SkeletonImage from "../../Common/SkeletonImage";
 
 const PPF = () => {
   useEffect(() => {
@@ -20,14 +19,7 @@ const PPF = () => {
 
       {/* Cinematic Hero */}
       <section className="service-hero-elite">
-        <SkeletonImage 
-          src={assets.P11} 
-          alt="PPF Shield" 
-          className="service-hero-bg" 
-          priority={true}
-          width="100%"
-          height="100vh"
-        />
+        <img src={assets.P11} alt="PPF Shield" className="service-hero-bg" loading="eager" decoding="async" />
         <div className="service-hero-overlay"></div>
         <div className="container service-hero-content">
           <ScrollReveal delay={0.1}>
@@ -149,14 +141,9 @@ const PPF = () => {
         <div className="masonry-gallery">
           {/* Featuring the best PPF assets */}
           {[assets.ppfmain_icon, assets.P11, assets.P12, assets.P14, assets.P15, assets.P16, assets.P18, assets.P19, assets.p1_icon].map((img, index) => (
-            <ScrollReveal key={index} delay={0.1}>
+            <ScrollReveal delay={0.1 + (index * 0.1)} key={index}>
               <div className="masonry-item">
-                <SkeletonImage 
-                  src={img} 
-                  alt={`PPF Work ${index + 1}`} 
-                  width={400} 
-                  height={500} 
-                />
+                <img src={img} alt={`PPF Work ${index + 1}`} loading="lazy" decoding="async" />
                 <div className="masonry-overlay">
                   <span className="masonry-zoom"><i className="fas fa-search-plus"></i></span>
                 </div>

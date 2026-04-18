@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet";
 import { assets } from "@assets/icon";
 import { Link } from "react-router-dom";
 import ScrollReveal from "../../ScrollReveal";
-import SkeletonImage from "../../Common/SkeletonImage";
 import "../Services.css"; // Master CSS
 
 const Cermaiccoating = () => {
@@ -20,14 +19,8 @@ const Cermaiccoating = () => {
 
       {/* Cinematic Hero */}
       <section className="service-hero-elite">
-        <SkeletonImage 
-          src={assets.C10} 
-          alt="Ceramic Coating" 
-          className="service-hero-bg" 
-          priority={true}
-          width="100%"
-          height="100vh"
-        />
+        {/* Use a hero image. Assets.C1 or similar */}
+        <img src={assets.C3} alt="Ceramic Coating" className="service-hero-bg" loading="eager" decoding="async" />
         <div className="service-hero-overlay"></div>
         <div className="container service-hero-content">
           <ScrollReveal delay={0.1}>
@@ -148,15 +141,10 @@ const Cermaiccoating = () => {
         
         <div className="masonry-gallery">
           {/* Featuring the best Ceramic assets */}
-          {[assets.C1, assets.C2, assets.C3, assets.C4, assets.C5, assets.C6, assets.C7, assets.C8, assets.C11].map((img, index) => (
-            <ScrollReveal key={index} delay={0.1}>
+          {[assets.C1, assets.C4, assets.C5, assets.C10, assets.C12, assets.C16].map((img, index) => (
+            <ScrollReveal delay={0.1 + (index * 0.1)} key={index}>
               <div className="masonry-item">
-                <SkeletonImage 
-                  src={img} 
-                  alt={`Ceramic Work ${index + 1}`} 
-                  width={400} 
-                  height={500} 
-                />
+                <img src={img} alt={`Ceramic Work ${index + 1}`} loading="lazy" decoding="async" />
                 <div className="masonry-overlay">
                   <span className="masonry-zoom"><i className="fas fa-search-plus"></i></span>
                 </div>

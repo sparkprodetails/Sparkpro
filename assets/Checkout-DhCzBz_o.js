@@ -1,4 +1,4 @@
-import{u as T,a as R,r as n,j as e,S as m,L as S}from"./index-cyNiWVYh.js";import{e as q}from"./index-DpmFZVTh.js";import{H as F}from"./Helmet-1wJxXwGP.js";const D="service_p58k9vs",O="template_b5rytf9",X="ZxXEXqXzV4MZOYLhk",A="923105555027",C="SparkproDetails",P="0310-5555027",w="HBL",E="PK00HABB0000000000000000",_="SparkproDetails";function W({order:a,onClose:r}){const h=encodeURIComponent(`Assalam o Alaikum! I have placed an order for:
+import{u as T,a as R,r as n,j as e,S as m,L as S}from"./index-GOWLnb0a.js";import{e as q}from"./index-DpmFZVTh.js";import{H as F}from"./Helmet-Bk3uEiON.js";const D="service_p58k9vs",O="template_b5rytf9",X="ZxXEXqXzV4MZOYLhk",A="923105555027",C="SparkproDetails",P="0310-5555027",w="HBL",E="PK00HABB0000000000000000",_="SparkproDetails";function W({order:a,onClose:r}){const h=encodeURIComponent(`Assalam o Alaikum! I have placed an order for:
 
 Package: ${a.package}
 Qty: ${a.quantity}

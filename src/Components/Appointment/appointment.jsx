@@ -50,6 +50,10 @@ const Appointment = () => {
       .then(
         (r) => {
           console.log('SUCCESS!', r.text);
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'appointment_booked'
+        });
           setIsSuccess(true);
           setIsSubmitting(false);
           // Clear form only on success
